@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Підготовка до НМТ | Авторські матеріали від Наталії Тарасенко</title>
+  <style>
+    /* ==========================================
+       RESET & BASE STYLES
+       ========================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #f8fafc;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* ==========================================
+       HEADER & NAVIGATION
+       ========================================== */
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #475569;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-contact {
+      background: #2563eb;
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn-contact:hover {
+      background: #1d4ed8;
+    }
+
+    /* ==========================================
+       HERO SECTION
+       ========================================== */
+    .hero {
+      padding: 70px 0 60px;
+      background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: #475569;
+      max-width: 720px;
+      margin: 0 auto 30px;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================
+       ADVANTAGES SECTION
+       ========================================== */
+    .advantages {
+      padding: 60px 0;
+      background: #ffffff;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      color: #0f172a;
+    }
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .adv-card {
+      background: #f8fafc;
+      padding: 30px 24px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    .adv-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #1e293b;
+    }
+    .adv-card p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================
+       CATALOG / PRODUCTS SECTION
+       ========================================== */
+    .catalog {
+      padding: 60px 0;
+      background-color: #f8fafc;
+    }
+    
+    /* Category Filter Buttons */
+    .categories-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 35px;
+    }
+    .filter-btn {
+      padding: 9px 20px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #475569;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .product-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #ef4444;
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      z-index: 2;
+    }
+    .card-image {
+      background: #e2e8f0;
+      height: 220px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .category-tag {
+      font-size: 0.75rem;
+      color: #2563eb;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .product-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 16px;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+    .price-box {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .old-price {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+    .current-price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .btn-buy {
+      width: 100%;
+      padding: 12px;
+      background: #16a34a;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .btn-buy:hover {
+      background: #15803d;
+    }
+
+    /* ==========================================
+       REVIEWS SECTION
+       ========================================== */
+    .reviews {
+      padding: 60px 0;
+      background: #ffffff;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .review-card {
+      background: #f8fafc;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .review-text {
+      font-style: italic;
+      color: #334155;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .review-author {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.9rem;
+    }
+
+    /* ==========================================
+       FOOTER
+       ========================================== */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 50px 0 30px;
+      font-size: 0.9rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .footer-col p, .footer-col a {
+      color: #94a3b8;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* ==========================================
+       RESPONSIVE DESIGN (MOBILE)
+       ========================================== */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .nav-links {
+        display: none; /* Для простих сайтів ховаємо навігацію або робимо скромний вигляд */
+      }
+      .header-content {
+        justify-content: space-between;
+      }
+      .categories-filter {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        white-space: nowrap;
+      }
+      .filter-btn {
+        flex: 0 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo">НМТ Prep Materials</a>
+      <ul class="nav-links">
+        <li><a href="#about">Про матеріали</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#reviews">Відгуки</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+      </ul>
+      <div class="header-contact">
+        <a href="https://t.me/your_telegram" target="_blank" class="btn-contact">Написати в Telegram</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">Підготовка до НМТ / ЗНО</span>
+      <h1>Авторські матеріали для успішного складання НМТ</h1>
+      <p>Конспекти, сині практики, таблиці та флешкартки від Наталії Тарасенко. Зробіть підготовку зрозумілою, чіткою та без зайвої «води».</p>
+      <div class="hero-actions">
+        <a href="#catalog" class="btn-primary">Переглянути каталог</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES -->
+  <section class="advantages" id="about">
+    <div class="container">
+      <h2 class="section-title">Чому обирають ці матеріали?</h2>
+      <div class="advantages-grid">
+        <div class="adv-card">
+          <h3>Чіткість та структура</h3>
+          <p>Всі конспекти розроблені у вигляді зрозумілих таблиць, схем та системних викладів теорії.</p>
+        </div>
+        <div class="adv-card">
+          <h3>Актуальна програма</h3>
+          <p>Матеріали повністю відповідають вимогам програми УЦОЯО для складання НМТ.</p>
+        </div>
+        <div class="adv-card">
+          <h3>Практичний підхід</h3>
+          <p>Синя практика та комплекти карток допомагають відпрацювати навички розв'язання тестів.</p>
+        </div>
+        <div class="adv-card">
+          <h3>Зручна доставка</h3>
+          <p>Друковані матеріали відправляються Новою Поштою по всій Україні у найкоротші терміни.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG SECTION -->
+  <section class="catalog" id="catalog">
+    <div class="container">
+      <h2 class="section-title">Каталог матеріалів</h2>
+
+      <!-- КАТЕГОРІЇ / ФІЛЬТР -->
+      <div class="categories-filter">
+        <button class="filter-btn active" onclick="filterCategory('all', this)">Всі товари</button>
+        <button class="filter-btn" onclick="filterCategory('history', this)">Історія України</button>
+        <button class="filter-btn" onclick="filterCategory('ukr', this)">Українська мова та л-ра</button>
+        <button class="filter-btn" onclick="filterCategory('geo', this)">Географія</button>
+        <button class="filter-btn" onclick="filterCategory('bio', this)">Біологія</button>
+        <button class="filter-btn" onclick="filterCategory('eng', this)">Англійська мова</button>
+        <button class="filter-btn" onclick="filterCategory('planner', this)">Магнітні планери</button>
+      </div>
+
+      <!-- СІТКА ТОВАРІВ -->
+      <div class="products-grid">
+
+        <!-- Товар 1 -->
+        <div class="product-card" data-category="history">
+          <div class="card-badge">–25%</div>
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x300?text=Історія+України+Комплект" alt="Комплект історія України">
+          </div>
+          <div class="card-content">
+            <span class="category-tag">Історія України</span>
+            <h3 class="product-title">Комплект червона теорія та синя практика + MEGA комплект карток НМТ ЗНО історія України</h3>
+            <div class="price-box">
+              <span class="old-price">3 680 ₴</span>
+              <span class="current-price">2 760 ₴</span>
+            </div>
+            <a href="https://t.me/your_telegram" target="_blank" class="btn-buy">Купити</a>
+          </div>
+        </div>
+
+        <!-- Товар 2 -->
+        <div class="product-card" data-category="ukr">
+          <div class="card-badge">–25%</div>
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x300?text=Укр+Мова+Комплект" alt="Комплект українська мова">
+          </div>
+          <div class="card-content">
+            <span class="category-tag">Українська мова та л-ра</span>
+            <h3 class="product-title">Комплект з української мови - теорія + практика + флешкартки НМТ ЗНО</h3>
+            <div class="price-box">
+              <span class="old-price">2 290 ₴</span>
+              <span class="current-price">1 710 ₴</span>
+            </div>
+            <a href="https://t.me/your_telegram" target="_blank" class="btn-buy">Купити</a>
+          </div>
+        </div>
+
+        <!-- Товар 3 -->
+        <div class="product-card" data-category="geo">
+          <div class="card-badge">–25%</div>
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x300?text=Географія+Повний+Комплект" alt="Повний комплект з географії">
+          </div>
+          <div class="card-content">
+            <span class="category-tag">Географія</span>
+            <h3 class="product-title">Повний комплект з географії теорія + практика + картки, НМТ ЗНО</h3>
+            <div class="price-box">
+              <span class="old-price">2 090 ₴</span>
+              <span class="current-price">1 570 ₴</span>
+            </div>
+            <a href="https://t.me/your_telegram" target="_blank" class="btn-buy">Купити</a>
+          </div>
+        </div>
+
+        <!-- Товар 4 -->
+        <div class="product-card" data-category="history">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x300?text=Конспект+Червоний+Історія" alt="Конспект червоний теорія історія">
+          </div>
+          <div class="card-content">
+            <span class="category-tag">Історія України</span>
+            <h3 class="product-title">Конспект червоний теоретичний (теорія) НМТ ЗНО історія України</h3>
+            <div class="price-box">
+              <span class="current-price">540 ₴</span>
+            </div>
+            <a href="https://t.me/your_telegram" target="_blank" class="btn-buy">Купити</a>
+          </div>
+        </div>
+
+        <!-- Товар 5 -->
+        <div class="product-card" data-category="history">
+          <div class="card-badge">–6%</div>
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x300?text=Теорія+Плюс+Практика+Історія" alt="Комплект книг теорія та практика">
+          </div>
+          <div class="card-content">
+            <span class="category-tag">Історія України</span>
+            <h3 class="product-title">Комплект книг червона теорія + синя практика НМТ ЗНО історія України</h3>
+            <div class="price-box">
+              <span class="old-price">1 080 ₴</span>
+              <span class="current-price">1 020 ₴</span>
+            </div>
+            <a href="https://t.me/your_telegram" target="_blank" class="btn-buy">Купити</a>
+          </div>
+        </div>
+
+        <!-- Товар 6 -->
+        <div class="product-card" data-category="geo">
+          <div class="card-badge">–6%</div>
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x300?text=Географія+Теорія+Практика" alt="Комплект географія">
+          </div>
+          <div class="card-content">
+            <span class="category-tag">Географія</span>
+            <h3 class="product-title">Комплект конспектів теорія + практика НМТ ЗНО географія</h3>
+            <div class="price-box">
+              <span class="old-price">1 080 ₴</span>
+              <span class="current-price">1 020 ₴</span>
+            </div>
+            <a href="https://t.me/your_telegram" target="_blank" class="btn-buy">Купити</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <h2 class="section-title">Відгуки покупців</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <p class="review-text">«Дуже якісні матеріали! Червона теорія з історії України написана супер зрозуміло. Склав іспит на 190+ балів, щиро дякую!»</p>
+          <div class="review-author">Олексій М.</div>
+        </div>
+        <div class="review-card">
+          <p class="review-text">«Флешкартки з української мови дуже допомогли під час вивчення наголосів та типових помилок. Рекомендую всім одинадцятикласникам.»</p>
+          <div class="review-author">Анастасія К.</div>
+        </div>
+        <div class="review-card">
+          <p class="review-text">«Замовляв комплект з географії. Доставили швидко, якість друку та паперу на вищому рівні. Матеріали реально варті своїх грошей.»</p>
+          <div class="review-author">Дмитро П.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacts">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>НМТ Prep Materials</h4>
+          <p>Авторські матеріали від Тарасенко Наталії для підготовки до НМТ / ЗНО.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Контакти</h4>
+          <p>Телефон: +380 (93) 078-18-95</p>
+          <p>Телефон: +380 (98) 100-14-50</p>
+        </div>
+        <div class="footer-col">
+          <h4>Месенджери</h4>
+          <a href="https://t.me/your_telegram" target="_blank">Telegram</a>
+          <a href="https://instagram.com/your_instagram" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-col">
+          <h4>Доставка та оплата</h4>
+          <p>Доставка Новою Поштою по всій Україні.</p>
+          <p>Оплата на картку / Пром-оплата.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Всі права захищено.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT FOR CATEGORY FILTERING -->
+  <script>
+    function filterCategory(category, button) {
+      // 1. Оновлюємо активну кнопку
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // 2. Фільтруємо картки товарів
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
